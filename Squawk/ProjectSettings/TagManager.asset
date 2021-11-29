@@ -6,7 +6,10 @@ TagManager:
   tags:
   - Collectable
   - Border
+<<<<<<< Updated upstream
   - Obstacle
+=======
+>>>>>>> Stashed changes
   layers:
   - Default
   - TransparentFX
