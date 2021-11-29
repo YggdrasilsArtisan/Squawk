@@ -14,6 +14,14 @@ public class Level : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        Vector3 cameraPosition = Camera.main.transform.position;
+        cameraPosition.x += 0.01f;
+        Camera.main.transform.position = cameraPosition;
+
+        if (cameraPosition.x >= 563.9621f)
+        {
+            cameraPosition.x = 377.78f;
+            Camera.main.transform.position = cameraPosition;
+        }
     }
 }
