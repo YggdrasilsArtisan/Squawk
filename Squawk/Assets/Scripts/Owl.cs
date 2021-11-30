@@ -19,13 +19,9 @@ public class Owl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Vector2 owlPosition = owlRigidbody.transform.position;
-
         if (owlRigidbody.position.x == GameObject.Find("Robin").transform.position.x)
         {
             owlAnimator.SetTrigger("Attack");
-            owlPosition.y -= 0.01f;
-            owlRigidbody.transform.position = owlPosition;
         }
     }
 }
