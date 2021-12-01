@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerCollision : MonoBehaviour
 {
@@ -8,7 +9,7 @@ public class PlayerCollision : MonoBehaviour
     { 
         if (collision.transform.tag == "Obstacle")
         {
-            Debug.Log("Game Over");
+            SceneManager.LoadScene(2, LoadSceneMode.Single);
         }
     }
 }
