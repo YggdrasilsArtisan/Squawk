@@ -9,19 +9,13 @@ public class Button : MonoBehaviour
     //Method for loading the game's main level
     public void StartGame()
     {
-        SceneManager.LoadScene(2, LoadSceneMode.Single); //Loads the third Scene (Main Level) in Build Settings
-    }
-
-    //Method for opening the options menu
-    public void LoadOptions()
-    {
-        SceneManager.LoadScene(1, LoadSceneMode.Single); //Loads the second Scene (Options Menu) in Build Settings
+        SceneManager.LoadScene(1, LoadSceneMode.Single); //Loads the second Scene (Main Level) in Build Settings
     }
 
     //Method for loading the game's credits roll
     public void ShowCredits()
     {
-        SceneManager.LoadScene(3, LoadSceneMode.Single); //Loads the fourth Scene (Credits) in Build Settings 
+        SceneManager.LoadScene(2, LoadSceneMode.Single); //Loads the third Scene (Credits) in Build Settings 
     }
 
     //Method for closing the game
