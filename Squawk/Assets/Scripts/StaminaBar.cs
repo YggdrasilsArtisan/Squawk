@@ -63,10 +63,6 @@ public class Stamina
         {
             SceneManager.LoadScene(3, LoadSceneMode.Single); //Loads the fourth Scene (Game Over) in Build Settings
         }
-        else if (staminaAmount <= 40)
-        {
-            //Change player portrait image to Player Portrait Tired
-        }
     }
 
     //Normalizes the number allowing for a clearer draining effect on the bar.
