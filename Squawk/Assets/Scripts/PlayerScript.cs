@@ -9,7 +9,7 @@ public class PlayerScript : MonoBehaviour
     public float speed;
     private Rigidbody2D rb;
     private Vector2 playerDirection;
-    private AudioSource sound;
+    private AudioSource robinAudioSource;
     public AudioClip collectibleClip;
     public AudioClip powerUpClip;
     private bool playedSound = false;
@@ -19,7 +19,7 @@ public class PlayerScript : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        sound = GetComponent<AudioSource>();
+        robinAudioSource = GetComponent<AudioSource>();
     }
 
 
@@ -36,7 +36,7 @@ public class PlayerScript : MonoBehaviour
         }
         else if (playedSound == false)
         {
-            sound.Stop();
+            robinAudioSource.Stop();
         }
         
     }
@@ -48,16 +48,18 @@ public class PlayerScript : MonoBehaviour
         rb.velocity = new Vector2(0, playerDirection.y * speed);
     }
 
+    //Method for playing Got-Collectable.wav
     public void PlayCollectibleSoundEffect()
     {
-        sound.clip = collectibleClip;
-        sound.PlayOneShot(collectibleClip);
+        robinAudioSource.clip = collectibleClip;
+        robinAudioSource.PlayOneShot(collectibleClip);
     }
 
+    //Method for playing Power-Item.wav
     public void PlayPowerUpSoundEffect()
     {
-        sound.clip = powerUpClip;
-        sound.PlayOneShot(powerUpClip);
+        robinAudioSource.clip = powerUpClip;
+        robinAudioSource.PlayOneShot(powerUpClip);
     }
 
 

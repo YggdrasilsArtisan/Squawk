@@ -6,28 +6,31 @@ using UnityEngine.SceneManagement;
 public class PlayerCollision : MonoBehaviour
 {
     public AudioClip hitClip;
-    private AudioSource sound;
-    private bool playedSound = false;
+    private AudioSource robinAudioSource;
+    private bool playHitSound = false;
 
     void Start()
     {
-        sound = GetComponent<AudioSource>();
+        robinAudioSource = GetComponent<AudioSource>();
     }
+
+    //Method for playing Robin-Hit.wav
     public void PlayHitSoundEffect()
     {
-        sound.clip = hitClip;
-        sound.PlayOneShot(hitClip);
+        robinAudioSource.clip = hitClip;
+        robinAudioSource.PlayOneShot(hitClip);
     }
 
     void Update()
     {
-        if (playedSound == true)
+        //Check if sound effect needs to be played
+        if (playHitSound == true)
         {
-            sound.Play();
+            robinAudioSource.Play();
         }
-        else if (playedSound == false)
+        else if (playHitSound == false)
         {
-            sound.Stop();
+            robinAudioSource.Stop();
         }
     }
 
@@ -37,7 +40,7 @@ public class PlayerCollision : MonoBehaviour
         if (collision.transform.tag == "Obstacle")
         {
             PlayHitSoundEffect();
-            playedSound = true;
+            playHitSound = true;
             SceneManager.LoadScene(3, LoadSceneMode.Single); //Loads the fourth Scene (Game Over) in Build Settings
         }
     }
