@@ -9,7 +9,7 @@ public class PlayerCollision : MonoBehaviour
     { 
         if (collision.transform.tag == "Obstacle")
         {
-            SceneManager.LoadScene(1, LoadSceneMode.Single);
+            SceneManager.LoadScene(3, LoadSceneMode.Single); //Loads the fourth Scene (Game Over) in Build Settings
         }
     }
 }

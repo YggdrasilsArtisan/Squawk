@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 //Class that handles how the bar is displayed
 public class StaminaBar : MonoBehaviour
@@ -59,8 +60,12 @@ public class Stamina
         staminaAmount -= drainAmount * Time.deltaTime;
 
         if (staminaAmount == 0)
-        { 
-            //Gameover
+        {
+            SceneManager.LoadScene(3, LoadSceneMode.Single); //Loads the fourth Scene (Game Over) in Build Settings
+        }
+        else if (staminaAmount <= 40)
+        {
+            //Change player portrait image to Player Portrait Tired
         }
     }
 
