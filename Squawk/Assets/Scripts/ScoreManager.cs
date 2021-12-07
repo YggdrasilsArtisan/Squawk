@@ -13,6 +13,9 @@ public class ScoreManager : MonoBehaviour
     int score = 0;
     int highscore = 0;
 
+    protected float timer;
+    public int delayAmount = 1;
+
     //Allows for ScoreManager.cs to be referenced in other files
     private void Awake()
     {
@@ -30,6 +33,18 @@ public class ScoreManager : MonoBehaviour
         highscoreText.text = "High Score: " + highscore.ToString();
     }
 
+    void Update()
+    {
+        timer += Time.deltaTime;
+
+        if (timer >= delayAmount)
+        {
+            timer = 0f;
+            score ++;
+            scoreText.text = "Score: " + score.ToString();
+        }
+    }
+
 
     public void AddPoint()
     {
@@ -41,4 +56,6 @@ public class ScoreManager : MonoBehaviour
         if (highscore < score)
             PlayerPrefs.SetInt("highscore", score);
     }
+
 }
+

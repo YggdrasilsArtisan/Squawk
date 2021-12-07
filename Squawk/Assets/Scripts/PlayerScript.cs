@@ -33,14 +33,32 @@ public class PlayerScript : MonoBehaviour
     }
 
 
-    //Triggers when player collects a seed. Despawns seed and adds point to score
+    //Triggers when player collects a collectable. Despawns collectable and does desired effect
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Collectable"))
+        if (collision.CompareTag("Seed"))
         {
             Destroy(collision.gameObject);
 
             ScoreManager.instance.AddPoint();
+        }
+
+       if (collision.CompareTag("Speedberry"))
+        {
+            Destroy(collision.gameObject); 
+        }
+
+        if (collision.CompareTag("Invinciberry"))
+        {
+            Destroy(collision.gameObject);
+
+        }
+
+        if (collision.CompareTag("Feather"))
+        {
+            Destroy(collision.gameObject);
+
+            StaminaBar.instance.regenStamina();
         }
     }
 }

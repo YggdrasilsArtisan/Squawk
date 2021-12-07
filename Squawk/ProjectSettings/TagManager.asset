@@ -6,7 +6,10 @@ TagManager:
   tags:
   - Border
   - Obstacle
-  - Collectable
+  - Seed
+  - Feather
+  - Invinciberry
+  - Speedberry
   layers:
   - Default
   - TransparentFX
@@ -14,9 +17,9 @@ TagManager:
   - 
   - Water
   - UI
-  - 
-  - 
-  - 
+  - Collectables
+  - Obstacles
+  - Boarders
   - 
   - 
   - 
