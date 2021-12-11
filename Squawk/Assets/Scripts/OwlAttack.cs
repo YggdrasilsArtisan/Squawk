@@ -18,10 +18,13 @@ public class OwlAttack : MonoBehaviour
     //Variables for controlling sound
     private AudioSource owlAudioSource;
     public AudioClip owlAttackClip;
+
+    Animator owlAnimator;
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         owlAudioSource = GetComponent<AudioSource>();
+        owlAnimator = GetComponent<Animator>();
 
         //Ignore Obstacles collision
         Physics2D.IgnoreLayerCollision(7, 7, true);
@@ -62,6 +65,7 @@ public class OwlAttack : MonoBehaviour
         AdjustAndPlayAttackSoundEffect();
         canAttack = false;
         yield return new WaitForSeconds(3f); //Gives player 2 seconds to move out of the owl's path
+        owlAnimator.SetTrigger("Attack");
         speedX = -6;
         if (ranNum == 1)
             speedY =  0;
@@ -70,6 +74,7 @@ public class OwlAttack : MonoBehaviour
         if (ranNum == 3)
             speedY = -6;
         yield return new WaitForSeconds(2f);
+        owlAnimator.SetTrigger("Fly");
         speedX = 6;
         if (ranNum == 1)
             speedY = 0;
