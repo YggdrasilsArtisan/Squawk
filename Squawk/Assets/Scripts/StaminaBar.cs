@@ -59,7 +59,7 @@ public class Stamina
     public void Update() {
         staminaAmount -= drainAmount * Time.deltaTime;
 
-        if (staminaAmount == 0)
+        if (staminaAmount <= 0)
         {
             SceneManager.LoadScene(3, LoadSceneMode.Single); //Loads the fourth Scene (Game Over) in Build Settings
         }
@@ -75,7 +75,6 @@ public class Stamina
     public void regenStamina()
     {
         this.staminaAmount = 100;
-
     }
 
 

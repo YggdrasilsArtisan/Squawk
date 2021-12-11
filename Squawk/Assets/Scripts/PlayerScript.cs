@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerScript : MonoBehaviour
 {
+    public static PlayerScript instance;
 
     //Variables for player controls
     public float speed;
@@ -14,6 +15,12 @@ public class PlayerScript : MonoBehaviour
     public AudioClip powerUpClip;
     private bool playedSound = false;
 
+    public bool speedActive = false;
+
+    private void Awake()
+    {
+        instance = this;
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -80,6 +87,8 @@ public class PlayerScript : MonoBehaviour
             PlayPowerUpSoundEffect();
             Destroy(collision.gameObject);
             playedSound = true;
+
+            StartCoroutine("GetSpeed");
         }
 
         if (collision.CompareTag("Invinciberry"))
@@ -100,4 +109,17 @@ public class PlayerScript : MonoBehaviour
         }
     }
 
+    IEnumerator GetSpeed()
+    {
+        speed = 22;
+        speedActive = true;
+        yield return new WaitForSeconds(10f); //Sets how long effect lasts for
+        speed = 12;
+        speedActive = false;
+    }
+
+    public bool getSpeedActive()
+    {
+        return speedActive;
+    }
 }
