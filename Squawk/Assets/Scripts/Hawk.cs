@@ -16,10 +16,14 @@ public class Hawk : MonoBehaviour
     bool canChangeDir = true;
     int speedX = 0;
 
-
+    //Variables for controlling sound
+    private AudioSource hawkAudioSource;
+    public AudioClip attackClip;
+ 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        hawkAudioSource = GetComponent<AudioSource>();
 
         //Ignore Obstacles collision
         Physics2D.IgnoreLayerCollision(7, 7, true);
@@ -30,6 +34,13 @@ public class Hawk : MonoBehaviour
     {
         if(canChangeDir == true)
             StartCoroutine("UpDown");
+    }
+
+    //Method for playing Hawk-Screeching.wav
+    public void PlayAttackSoundEffect()
+    {
+        hawkAudioSource.clip = attackClip;
+        hawkAudioSource.PlayOneShot(attackClip);
     }
     
     void FixedUpdate()
@@ -85,7 +96,7 @@ public class Hawk : MonoBehaviour
 
    IEnumerator Attack()
    {
-        //Play audio queue
+        PlayAttackSoundEffect();
         canMove = false;
         canAttack = false;
         yield return new WaitForSeconds(2f); //Gives player 2 seconds to move out of the hawk's path

@@ -15,10 +15,13 @@ public class OwlAttack : MonoBehaviour
     //variables for controlling attack
     bool canAttack = true;
 
-
+    //Variables for controlling sound
+    private AudioSource owlAudioSource;
+    public AudioClip owlAttackClip;
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        owlAudioSource = GetComponent<AudioSource>();
 
         //Ignore Obstacles collision
         Physics2D.IgnoreLayerCollision(7, 7, true);
@@ -30,6 +33,13 @@ public class OwlAttack : MonoBehaviour
 
     }
 
+    //Method for adjusting pitch of and playing Hawk-Screeching.wav
+    public void AdjustAndPlayAttackSoundEffect() 
+    {
+        owlAudioSource.clip = owlAttackClip;
+        owlAudioSource.pitch = 1.50f;
+        owlAudioSource.PlayOneShot(owlAttackClip);
+    }
     void FixedUpdate()
     {
 
@@ -49,7 +59,7 @@ public class OwlAttack : MonoBehaviour
     {
         int ranNum = Random.Range(0, 3);
 
-        //Play audio queue
+        AdjustAndPlayAttackSoundEffect();
         canAttack = false;
         yield return new WaitForSeconds(3f); //Gives player 2 seconds to move out of the owl's path
         speedX = -6;
