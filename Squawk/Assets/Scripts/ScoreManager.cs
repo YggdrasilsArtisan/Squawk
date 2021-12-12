@@ -14,7 +14,7 @@ public class ScoreManager : MonoBehaviour
     int highscore = 0;
 
     protected float timer;
-    public int delayAmount = 1;
+    public int delayAmount = 3;
 
     //Allows for ScoreManager.cs to be referenced in other files
     private void Awake()
@@ -37,7 +37,7 @@ public class ScoreManager : MonoBehaviour
     {
         timer += Time.deltaTime;
 
-        if (timer >= delayAmount)
+        if (timer > delayAmount)
         {
             timer = 0f;
             score ++;

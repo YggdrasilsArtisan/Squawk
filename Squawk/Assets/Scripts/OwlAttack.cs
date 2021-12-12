@@ -60,33 +60,32 @@ public class OwlAttack : MonoBehaviour
 
     IEnumerator Attack()
     {
-        int ranNum = Random.Range(0, 3);
+        int ranNum = Random.Range(0, 4);
 
         AdjustAndPlayAttackSoundEffect();
         canAttack = false;
-        yield return new WaitForSeconds(3f); //Gives player 2 seconds to move out of the owl's path
-        speedX = -6;
+        yield return new WaitForSeconds(2f); //Gives player 2 seconds to move out of the owl's path
+        speedX = -9;
         if (ranNum == 1)
             speedY =  0;
         if (ranNum == 2)
             speedY = -3;
         if (ranNum == 3)
             speedY = -6;
-        yield return new WaitForSeconds(1.2f);
+        yield return new WaitForSeconds(.5f);
         owlAnimator.SetTrigger("Attack");
-        yield return new WaitForSeconds(.8f);
+        yield return new WaitForSeconds(.9f);
         owlAnimator.SetTrigger("Fly");
-        speedX = 6;
+        speedX = 9;
         if (ranNum == 1)
             speedY = 0;
         if (ranNum == 2)
             speedY = 3;
         if (ranNum == 3)
             speedY = 6;
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(1.4f);
         speedX = 0;
         speedY = 0;
-        yield return new WaitForSeconds(3f); //Keeps owl from attacking again for 5 seconds
         canAttack = true;
 
     }
