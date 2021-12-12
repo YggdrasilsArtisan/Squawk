@@ -18,7 +18,7 @@ public class Invinciberry : MonoBehaviour
    //Triggers "GetInvincible" method if player hits Invinciberry
    void OnTriggerEnter2D(Collider2D col)
     {
-        if (col.gameObject.name.Equals("Invinciberry"))
+        if (col.CompareTag("Invinciberry"))
             StartCoroutine("GetInvincible");
     }
 

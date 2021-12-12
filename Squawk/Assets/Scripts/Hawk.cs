@@ -52,7 +52,7 @@ public class Hawk : MonoBehaviour
             rb.velocity = new Vector2(speedX, 0);
 
         //RNG determines when Hawk should attack
-        int randNum = Random.Range(0, 500); //Random number between 1 and 500. Determines how often hawk attacks
+        int randNum = Random.Range(0, 100); //Random number between 1 and 500. Determines how often hawk attacks
 
         if(randNum == 2)
         {

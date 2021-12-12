@@ -65,7 +65,6 @@ public class OwlAttack : MonoBehaviour
         AdjustAndPlayAttackSoundEffect();
         canAttack = false;
         yield return new WaitForSeconds(3f); //Gives player 2 seconds to move out of the owl's path
-        owlAnimator.SetTrigger("Attack");
         speedX = -6;
         if (ranNum == 1)
             speedY =  0;
@@ -73,7 +72,9 @@ public class OwlAttack : MonoBehaviour
             speedY = -3;
         if (ranNum == 3)
             speedY = -6;
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(1.2f);
+        owlAnimator.SetTrigger("Attack");
+        yield return new WaitForSeconds(.8f);
         owlAnimator.SetTrigger("Fly");
         speedX = 6;
         if (ranNum == 1)
