@@ -2,7 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-//Script for controlling camera movement in the game's main level
+//Cameron's script for controlling camera movement in the game's main level
+//Unused in final build
 public class Level : MonoBehaviour
 {
     // Start is called before the first frame update

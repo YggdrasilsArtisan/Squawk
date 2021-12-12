@@ -10,10 +10,10 @@ public class PlayerScript : MonoBehaviour
     public float speed;
     private Rigidbody2D rb;
     private Vector2 playerDirection;
-    private AudioSource robinAudioSource;
+    private AudioSource robinCollectAudioSource;
     public AudioClip collectibleClip;
     public AudioClip powerUpClip;
-    private bool playedSound = false;
+    private bool playSound = false;
 
     public bool speedActive = false;
 
@@ -26,7 +26,7 @@ public class PlayerScript : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        robinAudioSource = GetComponent<AudioSource>();
+        robinCollectAudioSource = GetComponent<AudioSource>();
     }
 
 
@@ -37,13 +37,14 @@ public class PlayerScript : MonoBehaviour
         playerDirection = new Vector2(0, directionY).normalized;
 
         //Check if sound was played
-        if (playedSound == true)
+        if (playSound == true)
         {
-            playedSound = false;
+            robinCollectAudioSource.Play();
+            playSound = false;
         }
-        else if (playedSound == false)
+        else if (playSound == false)
         {
-            robinAudioSource.Stop();
+            robinCollectAudioSource.Stop();
         }
         
     }
@@ -58,15 +59,17 @@ public class PlayerScript : MonoBehaviour
     //Method for playing Got-Collectable.wav
     public void PlayCollectibleSoundEffect()
     {
-        robinAudioSource.clip = collectibleClip;
-        robinAudioSource.PlayOneShot(collectibleClip);
+        robinCollectAudioSource.clip = collectibleClip;
+        robinCollectAudioSource.PlayOneShot(collectibleClip);
+        Debug.Log("Got a collectible chirp");
     }
 
     //Method for playing Power-Item.wav
     public void PlayPowerUpSoundEffect()
     {
-        robinAudioSource.clip = powerUpClip;
-        robinAudioSource.PlayOneShot(powerUpClip);
+        robinCollectAudioSource.clip = powerUpClip;
+        robinCollectAudioSource.PlayOneShot(powerUpClip);
+        Debug.Log("Got a power-up chirp");
     }
 
 
@@ -75,9 +78,9 @@ public class PlayerScript : MonoBehaviour
     {
         if (collision.CompareTag("Seed"))
         {
-            PlayCollectibleSoundEffect();    
+            PlayCollectibleSoundEffect();
+            playSound = true;
             Destroy(collision.gameObject);
-            playedSound = true;
 
             ScoreManager.instance.AddPoint();
         }
@@ -85,24 +88,24 @@ public class PlayerScript : MonoBehaviour
        if (collision.CompareTag("Speedberry"))
         {
             PlayPowerUpSoundEffect();
+            playSound = true;
             Destroy(collision.gameObject);
-            playedSound = true;
 
             StartCoroutine("GetSpeed");
         }
 
         if (collision.CompareTag("Invinciberry"))
         {
-            PlayPowerUpSoundEffect(); 
+            PlayPowerUpSoundEffect();
+            playSound = true;
             Destroy(collision.gameObject);
-            playedSound = true;
         }
 
         if (collision.CompareTag("Feather"))
         {
             PlayCollectibleSoundEffect();
+            playSound = true;
             Destroy(collision.gameObject);
-            playedSound = true;
 
             StaminaBar.instance.regenStamina();
 
