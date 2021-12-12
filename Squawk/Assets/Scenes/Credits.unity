@@ -185,7 +185,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 28
+    m_FontSize: 27
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 2
@@ -215,8 +215,8 @@ MonoBehaviour:
     Joshua Luscher
 
 
-    Core Gameplay
-    Programmer
+    Player and
+    Enemy Programmer
 
 
     Joshua Luscher
@@ -229,19 +229,22 @@ MonoBehaviour:
     Kelly
 
 
-    Level Design
+    Sound Effects Programmer
 
 
-    Chance Corliss
+    Cameron Kelly
 
 
     Story
 
 
-    Chance Corliss
+    Chance
+    Corliss
 
-    Joshua
-    Luscher'
+    Joshua Luscher
+
+
+    Thank you for playing!'
 --- !u!222 &2255915
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -491,8 +494,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.0005188, y: -0.0000014305}
-  m_SizeDelta: {x: 872.8, y: 473}
+  m_AnchoredPosition: {x: 0.00015014, y: -0.000015259}
+  m_SizeDelta: {x: 876, y: 485}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1204139835
 MonoBehaviour:
