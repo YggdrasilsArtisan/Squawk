@@ -27,6 +27,7 @@ public class PlayerScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Application.targetFrameRate = 60; //Sets the game's frame rate
         rb = GetComponent<Rigidbody2D>();
         robinAudioSource = GetComponent<AudioSource>();
     }
@@ -77,7 +78,7 @@ public class PlayerScript : MonoBehaviour
     }
 
 
-    //Triggers when player collects a collectable. Despawns collectable and does desired effect
+    //Plays sound and other effects when player hits collectible
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Seed"))
@@ -112,6 +113,7 @@ public class PlayerScript : MonoBehaviour
         }
     }
 
+    //Despawns collectibles and stops sounds
     private void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.CompareTag("Seed"))
@@ -139,7 +141,7 @@ public class PlayerScript : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
 
-        if (collision.transform.tag == "Obstacle")
+        if (collision.transform.CompareTag("Obstacle"))
         {
             playSound = true;
             PlayHitSoundEffect();
@@ -156,7 +158,7 @@ public class PlayerScript : MonoBehaviour
         speedActive = false;
     }
 
-    public bool getSpeedActive()
+    public bool GetSpeedActive()
     {
         return speedActive;
     }

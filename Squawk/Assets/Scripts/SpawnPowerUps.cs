@@ -20,7 +20,7 @@ public class SpawnPowerUps : MonoBehaviour
         {
             Spawn();
             canSpawn = false;
-            StartCoroutine("wait");
+            StartCoroutine("Wait");
         }
     }
 
@@ -32,7 +32,7 @@ public class SpawnPowerUps : MonoBehaviour
         Instantiate(collectable, transform.position + new Vector3(randomX, randomY, 0), transform.rotation);
     }
 
-    IEnumerator wait()
+    IEnumerator Wait()
     {
         yield return new WaitForSeconds(15f);
         canSpawn = true;
