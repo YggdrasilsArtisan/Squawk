@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-//Script to control the owl's animations
+//Script to control the owl's animations and movement
 public class OwlAttack : MonoBehaviour
 {
 
@@ -10,7 +10,6 @@ public class OwlAttack : MonoBehaviour
     public float speedY = 13;
     public int speedX = 13;
     private Rigidbody2D rb;
-    private Vector2 direction;
 
     //variables for controlling attack
     bool canAttack = true;
@@ -30,12 +29,6 @@ public class OwlAttack : MonoBehaviour
         Physics2D.IgnoreLayerCollision(7, 7, true);
     }
 
-
-    private void Update()
-    {
-
-    }
-
     //Method for adjusting pitch of and playing Hawk-Screeching.wav
     public void AdjustAndPlayAttackSoundEffect() 
     {
@@ -48,7 +41,7 @@ public class OwlAttack : MonoBehaviour
 
        rb.velocity = new Vector2(speedX, speedY);
 
-        //RNG determines when Hawk should attack
+        //RNG determines when Owl should attack
         int randNum = Random.Range(0, 100); //Random number between 1 and 500. Determines how often owl attacks
 
         if (randNum == 2)

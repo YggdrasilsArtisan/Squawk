@@ -2,8 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-//Joshua's script for controlling camera movement in the game's main level
-//Used in final build
+//Script for controlling camera movement in the game's main level
 public class CameraMovement : MonoBehaviour
 {
     public static CameraMovement instance;
