@@ -1390,7 +1390,6 @@ GameObject:
   - component: {fileID: 1161330821}
   - component: {fileID: 1161330820}
   - component: {fileID: 1161330822}
-  - component: {fileID: 1161330823}
   - component: {fileID: 1161330824}
   - component: {fileID: 1161330825}
   m_Layer: 0
@@ -1523,6 +1522,7 @@ MonoBehaviour:
   speed: 10
   collectibleClip: {fileID: 8300000, guid: 2a96490da163f004ba1142639c820167, type: 3}
   powerUpClip: {fileID: 8300000, guid: e4b3a82690ff3b045af01a31bc232e22, type: 3}
+  hitClip: {fileID: 8300000, guid: 7ebeb15f346f7de45a0b22a874d5a41f, type: 3}
   speedActive: 0
 --- !u!61 &1161330822
 BoxCollider2D:
@@ -1550,19 +1550,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2.55, y: 0.9}
   m_EdgeRadius: 0
---- !u!114 &1161330823
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1161330816}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b4e709cb988e612448ebdc23050562df, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hitClip: {fileID: 8300000, guid: 7ebeb15f346f7de45a0b22a874d5a41f, type: 3}
 --- !u!114 &1161330824
 MonoBehaviour:
   m_ObjectHideFlags: 0
