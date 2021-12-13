@@ -12,9 +12,9 @@ public class SpawnPowerUps : MonoBehaviour
     bool canSpawn = true;
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-        int ranNum = Random.Range(0, 10);
+        int ranNum = Random.Range(0, 1750);
 
         if (ranNum == 2 && canSpawn == true)
         {
